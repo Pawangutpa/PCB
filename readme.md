@@ -1,47 +1,57 @@
 # 📡 Wireless Environmental Monitoring Circuit Using LoRa and XIAO ESP32 S3
 
-This project involves the design and implementation of a wireless environmental monitoring system. The system is built using EasyEDA and utilizes a custom-designed **2-layer PCB** to measure **temperature**, **humidity**, and **light intensity**. These values are transmitted wirelessly over **LoRa** to a remote receiver, enabling real-time environmental tracking even in remote or off-grid areas.
+This project involves a wireless environmental monitoring system using a custom 2-layer PCB designed in EasyEDA. It measures **temperature**, **humidity**, and **light intensity**, and transmits the data via **LoRa** for remote tracking.
 
 ---
 
 ## 📦 Components Used
 
-- **LoRa Module** – Enables wireless long-range communication with low power consumption.
-- **XIAO ESP32 S3** – Ultra-compact microcontroller with built-in Wi-Fi/BLE, perfect for space-limited PCBs.
-- **DHT11 Sensor** – Provides temperature and humidity data.
-- **LDR (Light Dependent Resistor)** – Measures ambient light levels.
-- **1kΩ Resistor** – Used with the LDR in a voltage divider configuration.
-- **Slider Switch (SK-22D02-G5)** – Used to control power to the circuit.
-- **Headers and Resistors** – For modular interfacing and signal conditioning.
+- **LoRa Module** – Wireless long-range communication
+- **HJ-SMB049 Antenna** – Compact LoRa antenna for signal transmission
+- **XIAO ESP32 S3** – Microcontroller with Wi-Fi/BLE support
+- **DHT11 Sensor** – Measures temperature and humidity
+- **LDR (Light Dependent Resistor)** – Measures ambient light
+- **1kΩ Resistor** – Used with LDR in voltage divider
+- **Slider Switch (SK-22D02-G5)** – Power control switch
+- **Headers and Resistors** – Modular interfacing & signal conditioning
 
 ---
 
 ## 🧠 Project Functionality
 
-The XIAO ESP32 S3 reads data from the DHT11 and LDR sensors and processes the input. The LDR is connected in a **voltage divider** with a **1kΩ resistor**, allowing the ESP32 to sense light intensity as a voltage level. 
-
-The **SK-22D02-G5 slider switch** is used to **toggle the power** supply to the board, providing a reliable and compact method of turning the system on or off.
-
-The processed sensor data is transmitted via LoRa to a compatible receiver, enabling wireless monitoring of:
-
-- 🌡️ **Temperature**  
-- 💧 **Humidity**  
-- 💡 **Ambient Light Intensity**
+- ESP32 S3 reads:
+  - Temperature & humidity from **DHT11**
+  - Light level using **LDR + 1kΩ resistor** in voltage divider
+- **Slider switch** toggles power
+- Data sent via **LoRa module + HJ-SMB049 antenna** to remote receiver
+- Monitored Parameters:
+  - 🌡️ Temperature
+  - 💧 Humidity
+  - 💡 Light Intensity
 
 ---
 
 ## 🧩 PCB Design Details
 
-The custom PCB was designed in **EasyEDA** with a compact **2-layer layout**:
+- **Tool**: EasyEDA
+- **Size**: 30x55 mm
+- **ESP32 Header Spacing**: 15.24 mm
+- **Layers**: 2
 
-- 🟦 **Top Layer**: Contains all primary components including the microcontroller, sensors, LoRa module, and slider switch (SK-22D02-G5).
-- 🟥 **Bottom Layer**: Dedicated **copper ground plane** to:
-  - Reduce electrical noise
-  - Improve power distribution
-  - Ensure stable sensor readings
-  - Provide thermal dissipation
+### 🟦 Top Layer
+- ESP32 S3
+- DHT11
+- LDR + Voltage Divider
+- LoRa Module
+- HJ-SMB049 Antenna Connector
+- SK-22D02-G5 Slider Switch
 
-The PCB layout was optimized for **space efficiency**, **minimal interference**, and ease of assembly, meeting the design constraints of **30x55 mm** and maintaining a **15.24 mm spacing between ESP32 headers**.
+### 🟥 Bottom Layer
+- Full copper ground plane
+  - Reduces electrical noise
+  - Improves power distribution
+  - Enhances thermal dissipation
+  - Stabilizes sensor readings
 
 ---
 
@@ -51,43 +61,46 @@ The PCB layout was optimized for **space efficiency**, **minimal interference**,
 ![Circuit Diagram](./Circuit.png)
 
 ### 🔷 PCB Layout - Front View
-![Screenshot 1](./PCB_Front.png)
+![PCB Front](./PCB_Front.png)
 
 ### 🔶 PCB Layout - Back View
-![Screenshot 2](./PCB_Back.png)
+![PCB Back](./PCB_Back.png)
 
 ### 🔭 2D View
-![Screenshot 3](./2D_PCB.png)
+![2D PCB](./2D_PCB.png)
 
-### ⚙️ 3D View 
-![Screenshot 4](./PCB_3D.png)
+### ⚙️ 3D View
+![3D PCB](./PCB_3D.png)
 
 ---
 
 ## 🚀 Applications
 
-- 🌾 **Smart Agriculture** – Monitor field conditions (light, humidity, temperature) remotely
-- 🌧️ **Weather Stations** – Track environmental parameters in isolated areas
-- 🏕️ **Remote Data Logging** – Ideal for forest or mountain sensor nodes
-- 🏠 **Home Automation** – Can be integrated into indoor IoT setups
-- 📡 **LoRa IoT Networks** – Acts as a reliable node in low-power wide-area networks
+- 🌾 Smart Agriculture
+- 🌧️ Weather Stations
+- 🏕️ Remote Data Logging
+- 🏠 Home Automation
+- 📡 LoRa IoT Networks
 
 ---
 
 ## 🌱 Possible Future Improvements
 
-- Add **solar charging** and **battery management** circuit for autonomous deployment
-- Upgrade to **DHT22** for improved sensor accuracy
-- Add **real-time clock (RTC)** for time-stamped data
-- Include an **OLED display** for real-time local monitoring
-- Add a **motion sensor** for extended monitoring capabilities
-- Develop a **LoRa receiver dashboard** using Python or Node-RED to visualize incoming data
+- Solar charging + battery management
+- Replace DHT11 with DHT22
+- Add RTC (Real-Time Clock)
+- Integrate OLED display
+- Add PIR/motion sensor
+- Build LoRa dashboard (Python / Node-RED)
 
 ---
 
 ## ✅ Conclusion
 
-This PCB design effectively integrates environmental sensors with LoRa and a compact microcontroller to form a functional, efficient, and scalable **IoT solution**. The use of the **SK-22D02-G5 slider switch** enhances usability, while the copper ground plane ensures stability and performance. It’s ready for real-world deployment in a wide range of wireless sensing applications.
+- Compact and efficient PCB for LoRa-based IoT
+- Accurate sensing of environmental data
+- Reliable transmission using HJ-SMB049 antenna
+- Stable performance with copper ground layer
 
 ---
 
